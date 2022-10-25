@@ -55,24 +55,15 @@ const Header = () => {
             </li>
             <li>
               <Link
-                to="/coursescategory"
+                to="/courses"
                 aria-label="Our product"
                 title="Our product"
                 class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
               >
-                CoursesCategorys
+                Courses
               </Link>
             </li>
-            <li>
-              <Link
-                to="/"
-                aria-label="Product pricing"
-                title="Product pricing"
-                class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >
-                FAQ
-              </Link>
-            </li>
+            
             <li>
               <Link
                 to='/blog'
@@ -104,7 +95,8 @@ const Header = () => {
                         <>
                           <span className='p-4'>{user?.displayName}</span>
                             {
-                          user?.photoURL? <img className="w-11 h-11 mt-2 mr-2 rounded " src={user?.photoURL} alt="" /> : <p></p>           
+                          user?.photoURL? <img 
+                          title={user?.displayName} className="w-11 h-11 mt-2 mr-2 rounded " src={user?.photoURL} alt="" /> : <p></p>           
                             }
                           
                           <button onClick={handleLogout}

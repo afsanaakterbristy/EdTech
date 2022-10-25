@@ -9,6 +9,7 @@ import Main from "../layout/Main";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import PrivateRoutes from "./PrivateRoutes";
+import Courses from "../components/Courses/Courses";
 
 export const routes = createBrowserRouter([
     {
@@ -19,6 +20,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
+                loader: () => fetch('http://localhost:5000/courses')
+                
+            },
+            {
+                path: '/courses',
+                element: <Courses></Courses>,
                 loader: () => fetch('http://localhost:5000/courses')
                 
             },

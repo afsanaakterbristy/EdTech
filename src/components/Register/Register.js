@@ -72,7 +72,7 @@ const Register = () => {
           <div className='space-y-4'>
             <div>
              <label htmlFor='email' className='block mb-2 text-sm'>
-                Name
+               Full Name
               </label>
               <input
                 type='text'
