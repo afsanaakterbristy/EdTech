@@ -1,11 +1,11 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Register = () => {
-    const {providerLogin,createUser,updateUserProfile}=useContext(AuthContext)
+    const {providerLogin,createUser,updateUserProfile,providerGithub}=useContext(AuthContext)
     
     //google
     const googleProvider=new GoogleAuthProvider()
@@ -16,7 +16,17 @@ const Register = () => {
                 console.log(user)
         }).catch(error=>console.error(error))
     }  
+    //github
+    const githubProvider = new GithubAuthProvider()
     
+    const handleGithub = () => {
+        providerGithub(githubProvider)
+        .then(result => {
+                const user = result.user;
+                console.log(user)
+        }).catch(error=>console.error(error))
+    }
+
 //register
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -30,15 +40,15 @@ const Register = () => {
             .then(result => {
            const user = result.user;
                 console.log(user)
+                handleUpdateProfile(name1, photoURL);
                 form.reset();
-                handleUpdateProfile(name1,photoURL);
             })
             .catch(error => console.error(error))
        
     }
-    const handleUpdateProfile = (name, photoURL) => {
+    const handleUpdateProfile = (name1, photoURL) => {
         const profile = {
-            displayName: name,
+            displayName: name1,
             photoURL:photoURL
     }
         updateUserProfile(profile)
@@ -143,7 +153,7 @@ const Register = () => {
             </svg>
           </button>
           
-          <button aria-label='Log in with GitHub' className='p-3 rounded-sm'>
+          <button onClick={handleGithub} aria-label='Log in with GitHub' className='p-3 rounded-sm'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 32 32'

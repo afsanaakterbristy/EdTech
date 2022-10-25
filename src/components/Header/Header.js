@@ -104,8 +104,8 @@ const Header = () => {
                         <>
                           <span>{user?.displayName}</span>
                             {/* {
-                          user?.photoURL? <img src={user?.photoURL} alt="" /> : <p>afsa</p>           
-                        } */}
+                          user?.photoURL? <img style={{}} src={user?.photoURL} alt="" /> : <p></p>           
+                            } */}
                           
                           <button onClick={handleLogout}
                           class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"

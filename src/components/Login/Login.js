@@ -1,3 +1,4 @@
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
@@ -7,7 +8,7 @@ import { AuthContext } from '../../context/AuthProvider';
 
 const Login = () => {
   const [error,setError]=useState('')
-  const { signIn } = useContext(AuthContext);
+  const { signIn , providerLogin,providerGithub} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -29,6 +30,28 @@ const Login = () => {
                 console.error(error)
                 setError(error.message);
             })
+    }
+
+
+     //google
+    const googleProvider=new GoogleAuthProvider()
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+        }).catch(error=>console.error(error))
+    } 
+
+    //github
+    const githubProvider = new GithubAuthProvider()
+    
+    const handleGithub = () => {
+        providerGithub(githubProvider)
+        .then(result => {
+                const user = result.user;
+                console.log(user)
+        }).catch(error=>console.error(error))
     }
     return (
         <>
@@ -101,7 +124,7 @@ const Login = () => {
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
         </div>
         <div className='flex justify-center space-x-4'>
-          <button aria-label='Log in with Google' className='p-3 rounded-sm'>
+          <button onClick={handleGoogleSignIn} aria-label='Log in with Google' className='p-3 rounded-sm'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 32 32'
@@ -111,7 +134,7 @@ const Login = () => {
             </svg>
           </button>
           
-          <button aria-label='Log in with GitHub' className='p-3 rounded-sm'>
+          <button onClick={handleGithub} aria-label='Log in with GitHub' className='p-3 rounded-sm'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 32 32'
