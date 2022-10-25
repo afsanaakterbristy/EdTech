@@ -5,13 +5,13 @@ import Cards from '../Cards/Cards';
 const Home = () => {
     const courses=useLoaderData()
     return (
-        <>
-            <h1>okk{courses.length}</h1>
+        <div className='grid grid-cols-3 gap-5 my-10'>
+            
             
             {
                 courses.map(course=><Cards course={course}></Cards>)
             }
-        </>
+        </div>
     );
 };
 

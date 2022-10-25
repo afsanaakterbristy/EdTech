@@ -1,12 +1,18 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Cards from '../components/Cards/Cards';
 
 const CoursesCategory = () => {
-    const course = useLoaderData();
+    const courseCategory = useLoaderData();
    
     return (
-        <div>
-            <h2>couser category{course.length}</h2>
+        <div className='grid grid-cols-2'>
+            
+            {
+                courseCategory.map(course => <Cards
+                course={course}
+                ></Cards>) 
+            }
         </div>
     );
 };
