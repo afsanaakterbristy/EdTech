@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Register = () => {
-    const {providerLogin,createUser}=useContext(AuthContext)
+    const {providerLogin,createUser,updateUserProfile}=useContext(AuthContext)
     
     //google
     const googleProvider=new GoogleAuthProvider()
@@ -30,10 +30,20 @@ const Register = () => {
             .then(result => {
            const user = result.user;
                 console.log(user)
-                form.reset()
+                form.reset();
+                handleUpdateProfile(name1,photoURL);
             })
             .catch(error => console.error(error))
        
+    }
+    const handleUpdateProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL:photoURL
+    }
+        updateUserProfile(profile)
+        .then(() => {})
+        .catch(error => console.error(error))
     }
 
     return (
