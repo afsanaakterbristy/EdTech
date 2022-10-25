@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Header = () => {
-     const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const {user}=useContext(AuthContext)
     return (
         <div>
              <div class="bg-purple-900">
@@ -76,14 +78,24 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <a
-                href="/"
+              <Link
+                to="/register"
                 class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                 aria-label="Sign up"
                 title="Sign up"
               >
                 Sign up
-              </a>
+              </Link>
+                </li>
+                 <li>
+              <Link
+                to=''
+                aria-label="blog"
+                title="blog"
+                class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+              >
+               {user?.displayName}
+              </Link>
             </li>
           </ul>
           <div class="lg:hidden">
@@ -199,7 +211,7 @@ const Header = () => {
                       </li>
                       <li>
                         <Link
-                          to="/"
+                          to="/register"
                           class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                           aria-label="Sign up"
                           title="Sign up"
