@@ -56,8 +56,8 @@ const Header = () => {
             <li>
               <Link
                 to="/courses"
-                aria-label="Our product"
-                title="Our product"
+                aria-label="courses"
+                title="courses"
                 class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
               >
                 Courses

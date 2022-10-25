@@ -12,13 +12,13 @@ const LeftSideNav = () => {
     },[])
     return (
         <div>
-            <h3>Courses Category</h3>
+            <h3 className='font-bold mt-4 mb-3'>Courses Category</h3>
             <div >
                 {
                     categories.map(category =>
                         
-                        <h2 className= 'bg-purple-400' key={category.id}>
-                        <Link className='grid grid-rows-1 grid-flow-col gap-7 mb-2 p-3 ' to={`/category/${category.id}`}>{category.name}</Link> 
+                        <h2 className= 'bg-purple-400 rounded-md mr-12' key={category.id}>
+                        <Link className='grid grid-rows-1 grid-flow-col gap-7 mb-2 p-3' to={`/category/${category.id}`}>{category.name}</Link> 
                         </h2>
                     
                     )

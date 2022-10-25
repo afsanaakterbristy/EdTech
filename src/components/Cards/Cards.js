@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaStar,FaRegStarHalf } from "react-icons/fa";
 
 const Cards = ({ course }) => {
     const {_id, image_url,name,rating,details,price} = course;
@@ -14,11 +15,17 @@ const Cards = ({ course }) => {
               <p>{details.slice(0, 200) + '...'}</p> : <p>{details}</p>}</p>
             
             <div className="flex justify-between">
-              <h2>{rating}</h2>
-              <h2>{ price}</h2>
+              <div className='flex'>
+                <h2>{rating}</h2>
+                <div className='flex pt-1 ml-2 text-yellow-400'>
+                  <FaStar></FaStar><FaStar></FaStar><FaStar></FaStar><FaStar></FaStar>
+                  <FaRegStarHalf></FaRegStarHalf>
+                </div>
+             </div>
+              <h2>${price}</h2>
             </div>
       <div className="flex card-actions justify-between">
-      <button className="btn btn-info bg-purple-500 text-white"><Link to={`/allcourses/${_id}`}>Get Premier</Link></button>
+      <button className="btn btn-warning  text-white"><Link to={`/allcourses/${_id}`}>Get Premier</Link></button>
       <button className="btn btn-primary bg-purple-900 text-white"><Link to={`/allcourses/${_id}`}>Show More</Link> </button>
     </div>
   </div>

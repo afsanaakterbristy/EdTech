@@ -6,7 +6,7 @@ const CoursesCategory = () => {
     const courseCategory = useLoaderData();
    
     return (
-        <div className='grid grid-cols-2'>
+        <div className='grid grid-cols-2 gap-4'>
             
             {
                 courseCategory.map(course => <Cards
