@@ -93,8 +93,32 @@ const Header = () => {
                 aria-label="blog"
                 title="blog"
                 class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >
-               {user?.displayName}
+                  >    {
+                      user?.uid ?
+                        <>
+                          <button onClick={handleLogout}>
+                             <Link
+                          to="/login"
+                          class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                          aria-label="Sign up"
+                          title="Sign up"
+                        >
+                        Logout
+                          </Link>
+                          </button>
+                         
+                          <span>{user?.displayName}</span>
+                        </> :
+                        <>
+                        <Link to='/login'>login</Link>
+                        <Link to='/register'>register</Link>
+                        </>
+              }
+                
+                    {/* {
+                      user.photoURL ? <img src={user.photoURL} alt="" /> : <p>ok</p>
+                
+                    } */}
               </Link>
             </li>
           </ul>

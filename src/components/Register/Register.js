@@ -1,7 +1,21 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Register = () => {
+    const {providerLogin}=useContext(AuthContext)
+    
+    const googleProvider=new GoogleAuthProvider()
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+        }).catch(error=>console.error(error))
+ }
+
     return (
         <>
              <div className='flex justify-center items-center pt-8'>
@@ -59,7 +73,7 @@ const Register = () => {
           </div>
           <div className='space-y-2'>
             <div>
-              <button
+              <button 
                 type='submit'
                 className='w-full px-8 py-3 font-semibold rounded-md bg-purple-900 hover:bg-gray-700 hover:text-white text-gray-100'
               >
@@ -76,7 +90,7 @@ const Register = () => {
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
         </div>
         <div className='flex justify-center space-x-4'>
-          <button aria-label='Log in with Google' className='p-3 rounded-sm'>
+          <button onClick={handleGoogleSignIn} aria-label='Log in with Google' className='p-3 rounded-sm'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 32 32'
