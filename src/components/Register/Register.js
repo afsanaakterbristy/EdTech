@@ -21,11 +21,11 @@ const Register = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
+        const name1 = form.name1.value;
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photoURL, email, password);
+        console.log(name1, photoURL, email, password);
         createUser(email, password)
             .then(result => {
            const user = result.user;
@@ -56,7 +56,7 @@ const Register = () => {
               </label>
               <input
                 type='text'
-                name='name'
+                name='name1'
                 id='name'
                 placeholder='Enter Your Email Here'
                 className='w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900'

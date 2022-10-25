@@ -8,6 +8,7 @@ import CoursesCategory from "../CoursesCategory/CoursesCategory";
 import Main from "../layout/Main";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const routes = createBrowserRouter([
     {
@@ -29,7 +30,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/allcourses/:id',
-                element: <AllCourses></AllCourses>,
+                element:<PrivateRoutes> <AllCourses></AllCourses></PrivateRoutes>,
                 loader:({params})=>fetch(`http://localhost:5000/allcategory/${params.id}`)
             },
            {
