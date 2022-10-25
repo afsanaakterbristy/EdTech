@@ -1,7 +1,32 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
+
 
 const Login = () => {
+  const [error,setError]=useState('')
+  const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+    const handleSubmit = (event) => {
+         event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        signIn(email, password)
+         .then(result => {
+           const user = result.user;
+             console.log(user)
+             form.reset();
+             setError('');
+             navigate('/');
+            })
+            .catch(error => {
+                console.error(error)
+                setError(error.message);
+            })
+    }
     return (
         <>
             <div className='flex justify-center items-center pt-8'>
@@ -12,7 +37,7 @@ const Login = () => {
             Sign in to access your account
           </p>
         </div>
-        <form
+        <form onSubmit={handleSubmit}
           noValidate=''
           action=''
           className='space-y-6 ng-untouched ng-pristine ng-valid'
@@ -57,9 +82,13 @@ const Login = () => {
           </div>
         </form>
         <div className='space-y-1'>
-          <button className='text-xs hover:underline text-gray-400'>
+          {/* <button className='text-xs hover:underline text-gray-400'>
             Forgot password?
-          </button>
+          </button> */}
+          <h2 className='text-xs hover:underline text-gray-400'>
+            {error}
+          </h2>
+                        
         </div>
         <div className='flex items-center pt-4 space-x-1'>
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>

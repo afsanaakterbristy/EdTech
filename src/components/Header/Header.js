@@ -5,7 +5,13 @@ import { AuthContext } from '../../context/AuthProvider';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const {user}=useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext)
+  
+  const handleLogout = () => {
+    logOut()
+      .then(() => { })
+    .catch(error=>console.error(error))
+  }
     return (
         <div>
              <div class="bg-purple-900">
@@ -77,7 +83,7 @@ const Header = () => {
                 Blogs
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 to="/register"
                 class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
@@ -86,7 +92,7 @@ const Header = () => {
               >
                 Sign up
               </Link>
-                </li>
+                </li> */}
                  <li>
               <Link
                 to=''
@@ -96,27 +102,27 @@ const Header = () => {
                   >    {
                       user?.uid ?
                         <>
-                          <button onClick={handleLogout}>
-                             <Link
-                          to="/login"
+                          <span>{user?.displayName}</span>
+                          
+                          <button onClick={handleLogout}
                           class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                           aria-label="Sign up"
                           title="Sign up"
                         >
                         Logout
-                          </Link>
+                         
                           </button>
                          
-                          <span>{user?.displayName}</span>
+                         
                         </> :
                         <>
-                        <Link to='/login'>login</Link>
-                        <Link to='/register'>register</Link>
+                        <Link class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" to='/login'>login</Link>
+                        <Link class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" to='/register'>register</Link>
                         </>
               }
                 
                     {/* {
-                      user.photoURL ? <img src={user.photoURL} alt="" /> : <p>ok</p>
+                      user?.photoURL? <img src={user?.photoURL} alt="" /> : <p>ok</p>
                 
                     } */}
               </Link>

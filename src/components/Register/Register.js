@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Register = () => {
-    const {providerLogin}=useContext(AuthContext)
+    const {providerLogin,createUser}=useContext(AuthContext)
     
+    //google
     const googleProvider=new GoogleAuthProvider()
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
@@ -14,7 +15,26 @@ const Register = () => {
                 const user = result.user;
                 console.log(user)
         }).catch(error=>console.error(error))
- }
+    }  
+    
+//register
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photoURL = form.photoURL.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name, photoURL, email, password);
+        createUser(email, password)
+            .then(result => {
+           const user = result.user;
+                console.log(user)
+                form.reset()
+            })
+            .catch(error => console.error(error))
+       
+    }
 
     return (
         <>
@@ -24,19 +44,32 @@ const Register = () => {
           <h1 className='my-3 text-4xl font-bold text-purple-900'>Register</h1>
           <p className='text-sm text-gray-400'>Create a new account</p>
         </div>
-        <form
+        <form onSubmit={handleSubmit}
           noValidate=''
           action=''
           className='space-y-12 ng-untouched ng-pristine ng-valid'
         >
           <div className='space-y-4'>
             <div>
-              <label htmlFor='email' className='block mb-2 text-sm'>
+             <label htmlFor='email' className='block mb-2 text-sm'>
                 Name
               </label>
               <input
                 type='text'
                 name='name'
+                id='name'
+                placeholder='Enter Your Email Here'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900'
+                data-temp-mail-org='0'
+              />
+                </div>
+                <div>
+              <label htmlFor='email' className='block mb-2 text-sm'>
+               PhotoURL
+              </label>
+              <input
+                type='text'
+                name='photoURL'
                 id='name'
                 placeholder='Enter Your Name Here'
                 className='w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900'
