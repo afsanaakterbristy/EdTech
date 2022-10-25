@@ -96,16 +96,16 @@ const Header = () => {
                  <li>
               <Link
                 to=''
-                aria-label="blog"
-                title="blog"
-                class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                aria-label=""
+                title=""
+                class="flex font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                   >    {
                       user?.uid ?
                         <>
-                          <span>{user?.displayName}</span>
-                            {/* {
-                          user?.photoURL? <img style={{}} src={user?.photoURL} alt="" /> : <p></p>           
-                            } */}
+                          <span className='p-4'>{user?.displayName}</span>
+                            {
+                          user?.photoURL? <img className="w-11 h-11 mt-2 mr-2 rounded " src={user?.photoURL} alt="" /> : <p></p>           
+                            }
                           
                           <button onClick={handleLogout}
                           class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
