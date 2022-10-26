@@ -1,19 +1,19 @@
 import React, { useContext } from 'react';
-import toast from 'react-hot-toast';
+
 import { FaRegStarHalf, FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 const PremiumCheckOut = () => {
     const checkOut = useLoaderData();
-  const { _id, image_url, name, rating, details, price, author } = checkOut;
+  const { _id, image_url, name, rating, price, author } = checkOut;
   const {user}=useContext(AuthContext)
     return (
         <div>
         <div className='m-40 lg:flex justify-center'>
          
           <div className="flex justify-center items-center pt-8">
-  <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-purple-100 text-purple-900">
+  <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-purple-100 text-purple-900 dark:text-black">
     <div className="mb-8 text-center">
       <h1 className="my-3 text-4xl font-bold">For Buying</h1>
       <p className="text-sm text-gray-400">Our Best premium course</p>
@@ -76,11 +76,11 @@ const PremiumCheckOut = () => {
         </div>
         </div>   
       <div>
-        <button onClick={toast.success('Thanks for Buying')}
+        <button 
           type="submit"
-          className="w-full px-8 py-3 font-semibold rounded-md bg-purple-900 hover:bg-gray-700 hover:text-white text-gray-100"
+          className="w-full px-8 py-3 font-semibold rounded-md dark:bg-black bg-purple-900 hover:bg-gray-700 hover:text-white text-gray-100"
         >
-          Buying
+          Purchase
         </button>
       </div>
     </form>
@@ -97,7 +97,7 @@ const PremiumCheckOut = () => {
         <figure><img className='w-96 p-1' src={image_url} alt="Shoes" /></figure>
         <div className="card-body lg:mt-32">
                             <h2 className="card-title">{ name}</h2>
-                        {/* <p>{details}</p> */}
+                        
                         
 
              <div className="flex justify-start">

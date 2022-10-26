@@ -8,8 +8,8 @@ const PrivateRoutes = ({ children }) => {
     const { user,loading} = useContext(AuthContext)
     const location = useLocation()
     if (loading) {
-        return <button type="button" class="" >
-        <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
+        return <button type="button"  >
+        <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
         </svg>
         Loading...
         </button>

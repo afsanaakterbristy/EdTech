@@ -17,7 +17,7 @@ const LeftSideNav = () => {
                 {
                     categories.map(category =>
                         
-                        <h2 className= 'bg-purple-400 rounded-md mr-12' key={category.id}>
+                        <h2 className= 'bg-purple-400  dark:bg-gray-400 rounded-md mr-12 font-bold' key={category.id}>
                         <Link className='grid grid-rows-1 grid-flow-col gap-7 mb-2 p-3' to={`/category/${category.id}`}>{category.name}</Link> 
                         </h2>
                     

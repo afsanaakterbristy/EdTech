@@ -7,7 +7,7 @@ const Home = () => {
     const courses=useLoaderData()
     return (
         <>
-            <div className="relative bg-purple-400">
+            <div className="relative bg-purple-400 dark:bg-gray-400">
       <div className="absolute inset-x-0 bottom-0">
         <svg
           viewBox="0 0 224 12"
@@ -41,7 +41,7 @@ const Home = () => {
             /> */}
             <Link
               to="/"
-              className="inline-flex items-center justify-center w-full h-12 px-6 font-semibold tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto  bg-purple-900 hover:bg-teal-accent-700 focus:shadow-outline focus:outline-none"
+              className="inline-flex items-center justify-center w-full h-12 px-6 font-semibold tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto dark:bg-black  bg-purple-900 hover:bg-teal-accent-700 focus:shadow-outline focus:outline-none"
             >
               Get Start
             </Link>
@@ -71,7 +71,7 @@ const Home = () => {
            <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 container mx-auto px-4 mt-7">
                   
             {
-                courses.map(course=><Cards course={course}></Cards>)
+                courses.map(course=><Cards key={course._id} course={course}></Cards>)
             }
             </div>
            

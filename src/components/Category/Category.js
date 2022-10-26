@@ -1,14 +1,13 @@
 import React from 'react';
+import { FaRegStarHalf, FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { FaStar,FaRegStarHalf } from "react-icons/fa";
 
-const Cards = ({ course }) => {
-    const {_id, image_url,name,rating,details,price} = course;
+const Category = ({ course }) => {
+     const {_id, image_url,name,rating,details,price} = course;
     return (
-        
-     <div className='flex'>
-        <div className="card w-96 bg-base-100 shadow-xl">
-  <figure><img src={image_url} alt="Shoes" /></figure>
+        <div className='mb-36 p-8'>
+        <div className="card bg-base-100 shadow-xl">
+  <figure><img className='w-96' src={image_url} alt="Shoes" /></figure>
   <div className="card-body">
                     <h2 className="card-title font-bold">{ name}</h2>
                     <>{details.length > 200 ?
@@ -31,9 +30,7 @@ const Cards = ({ course }) => {
   </div>
 </div>
      </div>
-
-        
     );
 };
 
-export default Cards;
+export default Category;

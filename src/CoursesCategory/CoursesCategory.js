@@ -1,17 +1,18 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import Cards from '../components/Cards/Cards';
+
+import Category from '../components/Category/Category';
 
 const CoursesCategory = () => {
     const courseCategory = useLoaderData();
    
     return (
-        <div className='grid grid-cols-2 gap-4'>
+        <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 '>
             
             {
-                courseCategory.map(course => <Cards
+                courseCategory.map(course => <Category key={course._id} 
                 course={course}
-                ></Cards>) 
+                ></Category>) 
             }
         </div>
     );

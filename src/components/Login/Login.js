@@ -63,10 +63,10 @@ const Login = () => {
     }
     return (
         <>
-            <div className='flex justify-center items-center pt-8'>
+            <div className='flex justify-center items-center pt-8 mb-48'>
       <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
         <div className='mb-8 text-center'>
-          <h1 className='my-3 text-4xl font-bold text-purple-900'>Sign in</h1>
+          <h1 className='my-3 text-4xl font-bold text-purple-900 dark:text-black'>Sign in</h1>
           <p className='text-sm text-gray-400'>
             Sign in to access your account
           </p>
@@ -109,7 +109,7 @@ const Login = () => {
           <div>
             <button
               type='submit'
-              className='w-full px-8 py-3 font-semibold rounded-md bg-purple-900 hover:bg-gray-700 hover:text-white text-gray-100'
+              className='w-full px-8 py-3 font-semibold rounded-md bg-purple-900 dark:bg-black hover:bg-gray-700 hover:text-white text-gray-100'
             >
               Sign in
             </button>
