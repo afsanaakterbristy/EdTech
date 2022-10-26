@@ -1,12 +1,13 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Register = () => {
-    const {providerLogin,createUser,updateUserProfile,providerGithub,verifyEmail}=useContext(AuthContext)
+  const { providerLogin, createUser, updateUserProfile, providerGithub, verifyEmail } = useContext(AuthContext);
+  const [error,setError]=useState('')
     
     //google
     const googleProvider=new GoogleAuthProvider()
@@ -45,9 +46,15 @@ const Register = () => {
               handleUpdateProfile(name1, photoURL);
               handleEmailVerify()
                form.reset();
-               toast.success('Please Verify Your Email Address')
+                setError('');
+               toast.success('Please Verify Your Email Address');
+              
             })
-            .catch(error => console.error(error))
+          .catch(error => {
+            console.error(error)
+            setError(error.message);
+          })
+        
        
     }
     const handleUpdateProfile = (name1, photoURL) => {
@@ -141,10 +148,13 @@ const Register = () => {
                 className='w-full px-8 py-3 font-semibold rounded-md bg-purple-900 dark:bg-black hover:bg-gray-700 hover:text-white text-gray-100'
               >
                 Sign Up
-              </button>
+                  </button>
+            <h2 className='text-xs mt-1 hover:underline text-red-400 font-bold'>
+            {error}
+          </h2>
             </div>
           </div>
-        </form>
+        </form> 
         <div className='flex items-center pt-4 space-x-1'>
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
           <p className='px-3 text-sm dark:text-gray-400'>
@@ -177,7 +187,8 @@ const Register = () => {
           Already have an account yet?{' '}
           <Link to='/login' className='hover:underline text-gray-600'>
             Sign In
-          </Link>
+              </Link>
+            
           .
         </p>
       </div>

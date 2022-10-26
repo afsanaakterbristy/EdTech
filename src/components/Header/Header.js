@@ -228,24 +228,15 @@ const Header = () => {
                       </li>
                       <li>
                         <Link
-                          to="/"
+                          to="/courses"
                           aria-label="Our product"
                           title="Our product"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          CoursesCategorys
+                          Courses
                         </Link>
                       </li>
-                      <li>
-                        <Link
-                          to="/"
-                          aria-label="Product pricing"
-                          title="Product pricing"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                         FAQ
-                        </Link>
-                      </li>
+                      
                       <li>
                         <Link
                           to='/blog'
@@ -257,15 +248,49 @@ const Header = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link
-                          to="/register"
-                          className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+              <Link
+                to=''
+                aria-label=""
+                title=""
+                className="flex font-medium tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400"
+                  >    {
+                      user?.uid ?
+                        <>
+                          <Link className=' mt-3' to='/profile'>
+                          <span className='p-3 mt-3'>{user?.displayName}</span></Link>
+                            <Link to='/profile'>
+                            {
+                              user?.photoURL ? <img 
+                          title={user?.displayName} className="w-11 h-11 mt-2 mr-2 rounded " src={user?.photoURL} alt="" /> :<p className='mt-4'><FaUser></FaUser></p>
+                            }
+                          </Link>
+                          
+                          <button onClick={handleLogout}
+                          className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                           aria-label="Sign up"
                           title="Sign up"
                         >
-                          Sign up
-                        </Link>
-                      </li>
+                        Logout
+                         
+                          </button>
+                         
+                         
+                        </> :
+                        <>
+                        <Link className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" to='/login'>login</Link>
+                        <Link className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" to='/register'>register</Link>
+                        </>
+              }
+              </Link>
+                          </li>
+                          <li>
+  
+                  <div onClick={handleTohhle} className="relative cursor-pointer">
+                  <input type="checkbox" id="toggleB" className="sr-only" />
+                  <div className="block bg-purple-300 dark:bg-gray-400 w-14 h-8 rounded-full"></div>
+                  <div className="dark:translate-x-full	 dot absolute left-1 top-1 bg-purple-700 dark:bg-black w-6 h-6 rounded-full transition"></div>
+                </div>
+                </li>
                     </ul>
                   </nav>
                 </div>

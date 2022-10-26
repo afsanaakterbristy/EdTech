@@ -119,7 +119,7 @@ const Login = () => {
           {/* <button className='text-xs hover:underline text-gray-400'>
             Forgot password?
           </button> */}
-          <h2 className='text-xs hover:underline text-gray-400'>
+          <h2 className='text-xs mt-1 hover:underline text-red-400 font-semibold'>
             {error}
           </h2>
                         

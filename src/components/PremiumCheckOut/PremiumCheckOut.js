@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 
 import { FaRegStarHalf, FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
@@ -6,8 +7,13 @@ import { AuthContext } from '../../context/AuthProvider';
 
 const PremiumCheckOut = () => {
     const checkOut = useLoaderData();
-  const { _id, image_url, name, rating, price, author } = checkOut;
-  const {user}=useContext(AuthContext)
+  const { image_url, name, rating, price, author } = checkOut;
+  const { user } = useContext(AuthContext)
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    toast.success('Your Purchase completed ')
+  }
     return (
         <div>
         <div className='m-40 lg:flex justify-center'>
@@ -18,7 +24,7 @@ const PremiumCheckOut = () => {
       <h1 className="my-3 text-4xl font-bold">For Buying</h1>
       <p className="text-sm text-gray-400">Our Best premium course</p>
     </div>
-    <form
+    <form onClick={handleSubmit} 
       noValidate=""
       action=""
       className="space-y-6 ng-untouched ng-pristine ng-valid"
@@ -26,13 +32,14 @@ const PremiumCheckOut = () => {
             
           <div className="space-y-4">
         <div>
-          <label htmlFor="email" className="block mb-2 text-sm">
+          <label htmlFor="email"  className="block mb-2 text-sm">
             Full Name
           </label>
           <input
             type="text"
-            name="email"
-            id="email"
+            name="name"
+            id="name"
+            defaultValue={user?.displayName}
             placeholder="Enter Your Email Here"
             className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900"
             data-temp-mail-org="0"
@@ -48,11 +55,12 @@ const PremiumCheckOut = () => {
           </label>
           <input
             type="text"
-            name="email"
-            id="email"
+            name="number"
+            id="number"
             placeholder="Enter Your Email Here"
             className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900"
             data-temp-mail-org="0"
+            required
           />
         </div>
         </div>   
@@ -69,6 +77,8 @@ const PremiumCheckOut = () => {
             type="email"
             name="email"
             id="email"
+            readOnly
+            defaultValue={user?.email}
             placeholder="Enter Your Email Here"
             className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900"
             data-temp-mail-org="0"
