@@ -1,8 +1,8 @@
 import React from 'react';
+import { FaRegStarHalf, FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
-import { FaStar,FaRegStarHalf } from "react-icons/fa";
 
-const AllCourses = () => {
+const PremiumCheckOut = () => {
     const allCourses = useLoaderData();
      const {_id, image_url,name,rating,details,price,author} = allCourses;
     return (
@@ -34,8 +34,8 @@ const AllCourses = () => {
                         </div>
                           <h2 className=''>{author.published_date}</h2> 
       <div className="flex card-actions justify-end">
-      <button className="btn btn-warning"><Link to={`/checkout/${_id}`}>Get Premium</Link></button>
-      <button className="btn btn-outline btn-ghost">Download</button>
+      <button className="btn btn-warning"><Link to=''>CheckOut</Link></button>
+      
     </div>
   </div>
 </div>
@@ -44,4 +44,4 @@ const AllCourses = () => {
     );
 };
 
-export default AllCourses;
+export default PremiumCheckOut;

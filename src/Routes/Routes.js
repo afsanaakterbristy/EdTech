@@ -11,7 +11,8 @@ import Register from "../components/Register/Register";
 import PrivateRoutes from "./PrivateRoutes";
 import Courses from "../components/Courses/Courses";
 import Profile from "../components/Profile/Profile";
-import Premier from "../components/Premier/Premier";
+
+import PremiumCheckOut from "../components/PremiumCheckOut/PremiumCheckOut";
 
 export const routes = createBrowserRouter([
     {
@@ -60,8 +61,8 @@ export const routes = createBrowserRouter([
                 
             },
             {
-                path: '/premier/:id',
-                element: <PrivateRoutes><Premier></Premier></PrivateRoutes>,
+                path: '/checkout/:id',
+                element: <PrivateRoutes><PremiumCheckOut></PremiumCheckOut></PrivateRoutes>,
                 loader:({params})=>fetch(`http://localhost:5000/allcategory/${params.id}`)
             },
             
