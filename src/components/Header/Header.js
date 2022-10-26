@@ -90,16 +90,7 @@ const Header = () => {
                 Blogs
               </Link>
             </li>
-            {/* <li>
-              <Link
-                to="/register"
-                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                aria-label="Sign up"
-                title="Sign up"
-              >
-                Sign up
-              </Link>
-                </li> */}
+            
                  <li>
               <Link
                 to=''
@@ -174,8 +165,8 @@ const Header = () => {
                     <div>
                       <Link
                         to="/"
-                        aria-label="Company"
-                        title="Company"
+                        aria-label="Home"
+                        title="Home"
                         className="inline-flex items-center"
                       >
                         <svg
@@ -219,8 +210,8 @@ const Header = () => {
                       <li>
                         <Link
                           to="/"
-                          aria-label="Our product"
-                          title="Our product"
+                          aria-label="Home"
+                          title="Home"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
                           Home
@@ -229,8 +220,8 @@ const Header = () => {
                       <li>
                         <Link
                           to="/courses"
-                          aria-label="Our product"
-                          title="Our product"
+                          aria-label="courses"
+                          title="courses"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
                           Courses
@@ -240,8 +231,8 @@ const Header = () => {
                       <li>
                         <Link
                           to='/blog'
-                          aria-label="About us"
-                          title="About us"
+                          aria-label="blog"
+                          title="blog"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
                           Blogs
@@ -280,7 +271,7 @@ const Header = () => {
                         <Link className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" to='/login'>login</Link>
                         <Link className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" to='/register'>register</Link>
                         </>
-              }
+              } 
               </Link>
                           </li>
                           <li>

@@ -1,3 +1,20 @@
+# Name:EdTech
+
+Web Technology refers to the various tools and techniques that are utilized in the process of communication between different types of devices over the internet. A web browser is used to access web pages.
+
+# What I do in this Project?
+In this Project I have done many thing.I make there a navbar with the options: website logo, website name, Courses, Blog, toggle theme (dark/ light).In this courses page I will be divided into two parts.I make my website mobile & desktop responsive.I will display errors when the user's email address or password doesn't match.Make the Environment variable to hide the firebase key.
+
+
+## Live Link
+Hosted in Netlify -> [Smart Home]()
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
