@@ -7,7 +7,7 @@ In this Project I have done many thing.I make there a navbar with the options: w
 
 
 ## Live Link
-Hosted in Netlify -> [Smart Home]()
+Hosted in Netlify -> [EdTech](https://assignment-3f7c8.web.app)
 
 
 

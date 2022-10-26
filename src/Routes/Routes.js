@@ -23,25 +23,25 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/courses')
+                loader: () => fetch('https://assignment-server-kappa.vercel.app/courses')
                 
             },
             {
                 path: '/courses',
                 element: <PrivateRoutes><Courses></Courses></PrivateRoutes>,
-                loader: () => fetch('http://localhost:5000/courses')
+                loader: () => fetch('https://assignment-server-kappa.vercel.app/courses')
                 
             },
             {
                 path: '/category/:id',
                 element:<PrivateRoutes><CoursesCategory></CoursesCategory></PrivateRoutes>,
-                loader: ({params}) =>fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({params}) =>fetch(`https://assignment-server-kappa.vercel.app/category/${params.id}`)
                 
             },
             {
                 path: '/allcourses/:id',
                 element:<PrivateRoutes> <AllCourses></AllCourses></PrivateRoutes>,
-                loader:({params})=>fetch(`http://localhost:5000/allcategory/${params.id}`)
+                loader:({params})=>fetch(`https://assignment-server-kappa.vercel.app/allcategory/${params.id}`)
             },
            {
                 path: '/blog',
@@ -63,7 +63,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/checkout/:id',
                 element: <PrivateRoutes><PremiumCheckOut></PremiumCheckOut></PrivateRoutes>,
-                loader:({params})=>fetch(`http://localhost:5000/allcategory/${params.id}`)
+                loader:({params})=>fetch(`https://assignment-server-kappa.vercel.app/allcategory/${params.id}`)
             },
             
             

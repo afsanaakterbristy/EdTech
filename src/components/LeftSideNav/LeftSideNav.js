@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const LeftSideNav = () => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/courses-category')
+        fetch('https://assignment-server-kappa.vercel.app/courses-category')
         .then(res => res.json())
         .then(data=>setCategories(data))
     },[])
