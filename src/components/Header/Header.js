@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useState } from 'react';
+import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
@@ -94,10 +95,12 @@ const Header = () => {
                       user?.uid ?
                         <>
                           <span className='p-4'>{user?.displayName}</span>
+                            <Link to='/profile'>
                             {
-                          user?.photoURL? <img 
-                          title={user?.displayName} className="w-11 h-11 mt-2 mr-2 rounded " src={user?.photoURL} alt="" /> : <p></p>           
+                              user?.photoURL ? <img 
+                          title={user?.displayName} className="w-11 h-11 mt-2 mr-2 rounded " src={user?.photoURL} alt="" /> : <p><FaUser></FaUser></p>  
                             }
+                          </Link>
                           
                           <button onClick={handleLogout}
                           class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"

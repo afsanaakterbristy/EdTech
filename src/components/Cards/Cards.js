@@ -25,7 +25,7 @@ const Cards = ({ course }) => {
               <h2>${price}</h2>
             </div>
       <div className="flex card-actions justify-between">
-      <button className="btn btn-warning  text-white"><Link to={`/allcourses/${_id}`}>Get Premier</Link></button>
+      <button className="btn btn-warning  text-white"><Link to={`/premier/${_id}`}>Get Premier</Link></button>
       <button className="btn btn-primary bg-purple-900 text-white"><Link to={`/allcourses/${_id}`}>Show More</Link> </button>
     </div>
   </div>

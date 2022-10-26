@@ -10,6 +10,8 @@ import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import PrivateRoutes from "./PrivateRoutes";
 import Courses from "../components/Courses/Courses";
+import Profile from "../components/Profile/Profile";
+import Premier from "../components/Premier/Premier";
 
 export const routes = createBrowserRouter([
     {
@@ -25,7 +27,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
-                element: <Courses></Courses>,
+                element: <PrivateRoutes><Courses></Courses></PrivateRoutes>,
                 loader: () => fetch('http://localhost:5000/courses')
                 
             },
@@ -52,6 +54,17 @@ export const routes = createBrowserRouter([
                 path: '/register',
                 element:<Register></Register>
             },
+            {
+                path: '/profile',
+                element: <PrivateRoutes><Profile></Profile></PrivateRoutes>
+                
+            },
+            {
+                path: '/premier/:id',
+                element: <PrivateRoutes><Premier></Premier></PrivateRoutes>,
+                loader:({params})=>fetch(`http://localhost:5000/allcategory/${params.id}`)
+            },
+            
             
         ]
           

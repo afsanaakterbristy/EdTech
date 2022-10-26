@@ -34,7 +34,7 @@ const AllCourses = () => {
                         </div>
                           <h2 className=''>{author.published_date}</h2> 
       <div className="flex card-actions justify-end">
-      <button className="btn btn-warning"><Link to={`/allcourses/${_id}`}>Get Premier</Link></button>
+      <button className="btn btn-warning"><Link to={`/premier/${_id}`}>Get Premier</Link></button>
       <button className="btn btn-outline btn-ghost">Download</button>
     </div>
   </div>

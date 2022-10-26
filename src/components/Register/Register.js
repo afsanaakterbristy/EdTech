@@ -1,11 +1,12 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Register = () => {
-    const {providerLogin,createUser,updateUserProfile,providerGithub}=useContext(AuthContext)
+    const {providerLogin,createUser,updateUserProfile,providerGithub,verifyEmail}=useContext(AuthContext)
     
     //google
     const googleProvider=new GoogleAuthProvider()
@@ -35,13 +36,16 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name1, photoURL, email, password);
+      console.log(name1, photoURL, email, password);
+      
         createUser(email, password)
-            .then(result => {
-           const user = result.user;
-                console.log(user)
-                handleUpdateProfile(name1, photoURL);
-                form.reset();
+             .then(result => {
+              const user = result.user;
+              console.log(user)
+              handleUpdateProfile(name1, photoURL);
+              handleEmailVerify()
+               form.reset();
+               toast.success('Please Verify Your Email Address')
             })
             .catch(error => console.error(error))
        
@@ -54,7 +58,13 @@ const Register = () => {
         updateUserProfile(profile)
         .then(() => {})
         .catch(error => console.error(error))
-    }
+  }
+  
+  const handleEmailVerify = () => {
+    verifyEmail()
+    .then(() => {})
+    .catch(error => console.error(error))
+  }
 
     return (
         <>
@@ -68,7 +78,7 @@ const Register = () => {
           noValidate=''
           action=''
           className='space-y-12 ng-untouched ng-pristine ng-valid'
-        >
+        > 
           <div className='space-y-4'>
             <div>
              <label htmlFor='email' className='block mb-2 text-sm'>
