@@ -32,18 +32,18 @@ const Home = () => {
           <p className="mb-6 text-base text-teal-900 md:text-lg">
            Web Technology refers to the various tools and techniques that are utilized in the process of communication between different types of devices over the internet. A web browser is used to access web pages. 
           </p>
-          <form className="flex flex-col items-center w-full mb-4 md:flex-row md:px-16">
-            <input
+          <form className="flex flex-col items-center justify-center w-full mb-4 md:flex-row md:px-16">
+            {/* <input
               placeholder="Email"
               required
               type="text"
               className="flex-grow w-full h-12 px-4 mb-3 text-white transition duration-200 border-2 border-transparent rounded appearance-none md:mr-2 md:mb-0 bg-deep-purple-900 focus:border-teal-accent-700 focus:outline-none focus:shadow-outline"
-            />
+            /> */}
             <Link
               to="/"
               className="inline-flex items-center justify-center w-full h-12 px-6 font-semibold tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto  bg-purple-900 hover:bg-teal-accent-700 focus:shadow-outline focus:outline-none"
             >
-              Subscribe
+              Toggle Mode
             </Link>
           </form>
           

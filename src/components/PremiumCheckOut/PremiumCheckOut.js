@@ -34,7 +34,7 @@ const PremiumCheckOut = () => {
                         </div>
                           <h2 className=''>{author.published_date}</h2> 
       <div className="flex card-actions justify-end">
-      <button className="btn btn-warning"><Link to=''>CheckOut</Link></button>
+      <button className="btn btn-warning"><Link to='/'>CheckOut</Link></button>
       
     </div>
   </div>
