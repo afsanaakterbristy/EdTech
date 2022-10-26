@@ -13,9 +13,24 @@ const Header = () => {
       .then(() => { })
     .catch(error=>console.error(error))
   }
+
+  //mode dark light
+
+  const handleTohhle = () => {
+    let htmlClasses = document.querySelector("html").classList;
+    if (localStorage.theme === "dark") {
+      htmlClasses.remove("dark");
+      localStorage.removeItem("theme");
+    } else {
+      htmlClasses.add("dark");
+      localStorage.setItem("theme", "dark");
+    }
+
+  } 
+
     return (
         <div>
-             <div class="bg-purple-900">
+             <div class="bg-purple-900 dark:bg-black">
       <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div class="relative flex items-center justify-between">
           <Link
@@ -118,10 +133,16 @@ const Header = () => {
                         <Link class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" to='/register'>register</Link>
                         </>
               }
-                
-                  
               </Link>
-            </li>
+                </li>
+                <li>
+  
+                  <div onClick={handleTohhle} class="relative cursor-pointer">
+                  <input type="checkbox" id="toggleB" class="sr-only" />
+                  <div class="block bg-white dark:bg-white w-14 h-8 rounded-full"></div>
+                  <div class="dark:translate-x-full	 dot absolute left-1 top-1 bg-purple-700 dark:bg-black w-6 h-6 rounded-full transition"></div>
+                </div>
+                </li>
           </ul>
           <div class="lg:hidden">
             <button

@@ -43,7 +43,7 @@ const Home = () => {
               to="/"
               className="inline-flex items-center justify-center w-full h-12 px-6 font-semibold tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto  bg-purple-900 hover:bg-teal-accent-700 focus:shadow-outline focus:outline-none"
             >
-              Toggle Mode
+              Get Start
             </Link>
           </form>
           
