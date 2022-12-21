@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Cards from '../Cards/Cards';
 
-
 const Home = () => {
     const courses=useLoaderData()
     return (
